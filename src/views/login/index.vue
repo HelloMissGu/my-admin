@@ -1,7 +1,7 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-10-26 16:43:06
- * @LastEditTime: 2021-10-27 20:31:34
+ * @LastEditTime: 2021-11-02 20:48:16
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\views\login\index.vue
@@ -119,14 +119,16 @@ export default {
       })
     },
     async handleLogin() {
-      this.$store.dispatch('user/login')
+      // this.$store.dispatch('user/login')
       let valid = await this.$refs.loginForm.validate
       if(!valid) return
       
-      // api login
-      let res = await this.$store.dispatch('user/login')
-      console.log('123',res);
-      
+      // // api login
+      // let res = await this.$store.dispatch('user/login')
+      // console.log('123',res);
+      setTimeout(() => {
+        this.$router.push({name:'Dashboard'})
+      }, 1000);
       
       // this.$refs.loginForm.validate(valid => {
       //   if (valid) {
