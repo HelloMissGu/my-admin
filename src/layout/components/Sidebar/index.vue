@@ -1,13 +1,13 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-02 21:01:54
- * @LastEditTime: 2021-11-03 21:09:53
+ * @LastEditTime: 2021-11-05 16:34:27
  * @LastEditors: shuhua
  * @Description: 侧边栏
  * @FilePath: \my-admin\src\layout\components\Sidebar\index.vue
 -->
 <template>
-<div>
+<div class="side-bar">
   侧边栏
     <el-menu
       default-active="2"
@@ -25,7 +25,9 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import SidebarItem from './sidebarItem'
 export default {
+  components: { SidebarItem },
   computed: {
     ...mapGetters([
       'permission_routes',
@@ -42,5 +44,8 @@ export default {
 }
 </script>
 <style lang='scss'>
-
+.side-bar{
+  height: 100%;
+  background-color: #007acc;
+}
 </style>
