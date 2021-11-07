@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-10-26 16:40:19
- * @LastEditTime: 2021-11-05 18:44:10
+ * @LastEditTime: 2021-11-08 00:28:17
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\router\index.js
@@ -32,6 +32,34 @@ export const constantRoutes = [
   },
 ]
 export const asyncRoutes = [
+  {
+    path: '/userManage',
+    component: Layout,
+    redirect: '/userManage',
+    children:[
+      {
+        path:'/userManage',
+        component: () => import('@/views/userManage/index'),
+        name: 'UserManage',
+        meta: {
+          title: 'Directive Permission',
+          roles: ['admin']
+          // if do not set roles, means: this page does not require permission
+        }
+      }
+    ]
+  },
+  // {
+  //   path:'/userManage',
+  //   component:()=>import('@views/userManage/index'),
+  //   name:'UserManage',
+    
+  // },
+  // {
+  //   path:'/reserveManagement',
+  //   component:()=>import('@views/reserveManagement/index'),
+  //   name:'ReserveManagement', 
+  // }
   // {
   //   path: '/permission',
   //   component: Layout,
@@ -73,19 +101,19 @@ export const asyncRoutes = [
   //     }
   //   ]
   // },
-  {
-    path: '/reserve',
-    component: Layout,
-    redirect: '/reserveManage',
-    children: [
-      {
-        path: 'reserveManage',
-        name: 'ReserveManage',
-        component: () => import('@/views/reserveManagement/index'),
-        meta: { title: '预约管理', icon: 'el-icon-tickets', access: 'ReserveManage' }
-      }
-    ]
-  },
+  // {
+  //   path: '/reserve',
+  //   component: Layout,
+  //   redirect: '/reserveManage',
+  //   children: [
+  //     {
+  //       path: 'reserveManage',
+  //       name: 'ReserveManage',
+  //       component: () => import('@/views/reserveManagement/index'),
+  //       meta: { title: '预约管理', icon: 'el-icon-tickets', access: 'ReserveManage' }
+  //     }
+  //   ]
+  // },
 ]
 
 const createRouter = () => new Router({
