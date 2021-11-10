@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-10-26 17:37:12
- * @LastEditTime: 2021-10-27 20:31:12
+ * @LastEditTime: 2021-11-10 17:44:56
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\store\modules\user.js
@@ -11,11 +11,19 @@ import { getToken, setToken, removeToken } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 const state={
   token: getToken(),
+  userName: '',
+  roleName: '',
 }
 const mutations={
   SET_TOKEN: (state, token) => {
     state.token = token
   },
+  SET_USERNAME:(state,name)=>{
+    state.name = name
+  },
+  SET_ROLENAME:(state,name)=>{
+    state.name = name
+  }
 }
 const actions={
   login({ commit }, userInfo) {
@@ -33,6 +41,41 @@ const actions={
           aa:'aa'
         })
       }, 500);
+    })
+  },
+  async getInfo({ commit, state }) {
+    return new Promise((resolve, reject) => {
+      
+      // let userName=null
+      // let roleName = null
+      let data={
+        userName:'shuhua',
+        roleName:['admin']
+      }
+      commit('SET_USERNAME',data.userName)
+      commit('SET_ROLENAME',data.roleName)
+      setTimeout(() => {
+        resolve({
+          data
+        })
+      }, 500);
+      // getInfo(state.token).then(response => {
+      //   const { data } = response
+      //   // const roles = data.code
+
+      //   if (!data) {
+      //     reject('Verification failed, please Login again.')
+      //   }
+      //   data.avatar = data.avatar || 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
+      //   const { username, avatar, butTreeList, roleName } = data
+      //   commit('SET_NAME', username)
+      //   commit('SET_AVATAR', avatar)
+      //   commit('SET_ROLENAME', roleName)
+      //   commit('SET_BTNPERMISSIONS', butTreeList)
+      //   resolve(data)
+      // }).catch(error => {
+      //   reject(error)
+      // })
     })
   },
 }

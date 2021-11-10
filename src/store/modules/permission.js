@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-11-03 20:30:03
- * @LastEditTime: 2021-11-03 21:04:58
+ * @LastEditTime: 2021-11-10 17:46:02
  * @LastEditors: shuhua
  * @Description: 路由权限
  * @FilePath: \my-admin\src\store\modules\permission.js
@@ -55,6 +55,8 @@ const mutations = {
 // 权限过滤
 const actions = {
   generateRoutes({ commit }, roles) {
+    console.log('333',roles);
+    
     return new Promise(resolve => {
       let accessedRoutes
       if (roles.includes('admin')) {

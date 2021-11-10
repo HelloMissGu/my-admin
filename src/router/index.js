@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-10-26 16:40:19
- * @LastEditTime: 2021-11-08 00:28:17
+ * @LastEditTime: 2021-11-10 21:01:58
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\router\index.js
@@ -31,7 +31,8 @@ export const constantRoutes = [
     ]
   },
 ]
-export const asyncRoutes = [
+export const asyncRoutes = [ 
+
   {
     path: '/userManage',
     component: Layout,
@@ -42,78 +43,31 @@ export const asyncRoutes = [
         component: () => import('@/views/userManage/index'),
         name: 'UserManage',
         meta: {
-          title: 'Directive Permission',
-          roles: ['admin']
+          title: '用户管理',
+          roles: ['admin'],
+          icon: 'el-icon-tickets',
           // if do not set roles, means: this page does not require permission
         }
       }
     ]
   },
-  // {
-  //   path:'/userManage',
-  //   component:()=>import('@views/userManage/index'),
-  //   name:'UserManage',
-    
-  // },
-  // {
-  //   path:'/reserveManagement',
-  //   component:()=>import('@views/reserveManagement/index'),
-  //   name:'ReserveManagement', 
-  // }
-  // {
-  //   path: '/permission',
-  //   component: Layout,
-  //   redirect: '/permission/page',
-  //   alwaysShow: true, // will always show the root menu
-  //   name: 'Permission',
-  //   meta: {
-  //     title: 'Permission',
-  //     icon: 'lock',
-  //     roles: ['admin', 'editor'] // you can set roles in root nav
-  //   },
-  //   children: [
-  //     {
-  //       path: 'page',
-  //       component: () => import('@/views/permission/page'),
-  //       name: 'PagePermission',
-  //       meta: {
-  //         title: 'Page Permission',
-  //         roles: ['admin'] // or you can only set roles in sub nav
-  //       }
-  //     },
-  //     {
-  //       path: 'directive',
-  //       component: () => import('@/views/permission/directive'),
-  //       name: 'DirectivePermission',
-  //       meta: {
-  //         title: 'Directive Permission'
-  //         // if do not set roles, means: this page does not require permission
-  //       }
-  //     },
-  //     {
-  //       path: 'role',
-  //       component: () => import('@/views/permission/role'),
-  //       name: 'RolePermission',
-  //       meta: {
-  //         title: 'Role Permission',
-  //         roles: ['admin']
-  //       }
-  //     }
-  //   ]
-  // },
-  // {
-  //   path: '/reserve',
-  //   component: Layout,
-  //   redirect: '/reserveManage',
-  //   children: [
-  //     {
-  //       path: 'reserveManage',
-  //       name: 'ReserveManage',
-  //       component: () => import('@/views/reserveManagement/index'),
-  //       meta: { title: '预约管理', icon: 'el-icon-tickets', access: 'ReserveManage' }
-  //     }
-  //   ]
-  // },
+  {
+    path: '/reserve',
+    component: Layout,
+    redirect: '/reserveManage',
+    children: [
+      {
+        path: 'reserveManage',
+        name: 'ReserveManage',
+        component: () => import('@/views/reserveManagement/index'),
+        meta: {
+          title: '预约管理', 
+          icon: 'el-icon-tickets', 
+          access: 'ReserveManage' 
+        }
+      }
+    ]
+  },
 ]
 
 const createRouter = () => new Router({

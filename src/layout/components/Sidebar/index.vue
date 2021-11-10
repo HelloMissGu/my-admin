@@ -1,7 +1,7 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-02 21:01:54
- * @LastEditTime: 2021-11-05 16:34:27
+ * @LastEditTime: 2021-11-10 18:07:08
  * @LastEditors: shuhua
  * @Description: 侧边栏
  * @FilePath: \my-admin\src\layout\components\Sidebar\index.vue
@@ -18,8 +18,7 @@
       text-color="#fff"
       active-text-color="#ffd04b"
     >
-      <sidebar-item v-for="route in permission_routes" :key="route.path" 
-      :item="route" :base-path="route.path" />
+      <sidebar-item v-for="route in permission_routes" :key="route.path" :item="route" :base-path="route.path" />
     </el-menu>
 </div>
 </template>
@@ -32,6 +31,14 @@ export default {
     ...mapGetters([
       'permission_routes',
     ]),
+    path(){
+      return this.$route.path
+    }
+  },
+  mounted(){
+
+    console.log('111777777777777777777',this.permission_routes,this.$route.path);
+    
   },
   methods: {
     handleOpen(key, keyPath) {

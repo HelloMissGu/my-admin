@@ -1,7 +1,7 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-03 15:57:28
- * @LastEditTime: 2021-11-04 20:58:55
+ * @LastEditTime: 2021-11-10 18:28:57
  * @LastEditors: shuhua
  * @Description: 左侧路由栏
  * @FilePath: \my-admin\src\layout\components\Sidebar\sidebarItem.vue
@@ -16,6 +16,9 @@
       </app-link>
   </template>
   <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
+    <template slot="title">
+        <item v-if="item.meta" :title="item.meta.title" />
+      </template>
       <sidebar-item
         v-for="child in item.children"
         :key="child.path"
@@ -30,13 +33,34 @@
 <script>
 import path from 'path'
 import AppLink from './Link'
+import Item from './Item'
+import { isExternal } from '../../../utils/validate'
 export default {
   name:'SidebarItem',
-  components: {  AppLink },
+  components: {  AppLink,Item },
+  props: {
+    // route object
+    item: {
+      type: Object,
+      required: true
+    },
+    isNest: {
+      type: Boolean,
+      default: false
+    },
+    basePath: {
+      type: String,
+      default: ''
+    }
+  },
   data(){
     // 使用render函数重构
     this.onlyOneChild = null
     return{}
+  },
+  mounted(){
+    console.log('9999',isExternal);
+    
   },
   methods: {
     hasOneShowingChild(children = [], parent) {

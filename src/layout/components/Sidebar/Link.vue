@@ -1,7 +1,7 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-04 20:36:07
- * @LastEditTime: 2021-11-04 20:59:55
+ * @LastEditTime: 2021-11-10 18:24:16
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\layout\components\Sidebar\Link.vue
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-// import { isExternal } from '@/utils/validate'
+import { isExternal } from '@/utils/validate'
 
 export default {
   props: {
