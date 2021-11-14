@@ -8,7 +8,7 @@
 -->
 <template>
 <div class="content-container">
-  内容区
+  内容区{{$route.path}}
   <router-view :key="key" />
 </div>
 </template>

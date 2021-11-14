@@ -8,12 +8,9 @@
 -->
 <template>
 <div class="side-bar">
-  侧边栏
     <el-menu
-      default-active="2"
+      :default-active="activeMenu"
       class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b"
@@ -30,10 +27,24 @@ export default {
   computed: {
     ...mapGetters([
       'permission_routes',
+      'sidebar'
     ]),
     path(){
+      console.log('aaa',this.$route.path);
+      
       return this.$route.path
-    }
+    },
+    activeMenu() {
+      const route = this.$route
+      const { meta, path } = route
+      // if set path, the sidebar will highlight the path you set
+      if (meta.activeMenu) {
+        return meta.activeMenu
+      }
+      console.log('path',path);
+      
+      return path
+    },
   },
   mounted(){
 

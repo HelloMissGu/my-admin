@@ -14,6 +14,17 @@ Vue.use(Router)
 import Layout from "@/layout/index"
 export const constantRoutes = [
   {
+    path: '/redirect',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: '/redirect/:path(.*)',
+        component: () => import('@/views/redirect/index')
+      }
+    ]
+  },
+  {
     path: '/login',
     name: 'login',
     component: () => import('../views/login')
@@ -30,13 +41,21 @@ export const constantRoutes = [
       }
     ]
   },
+  
 ]
 export const asyncRoutes = [ 
 
   {
     path: '/userManage',
     component: Layout,
+    name:'UserManage',
     redirect: '/userManage',
+    meta: {
+      title: '用户管理',
+      roles: ['admin'],
+      icon: 'el-icon-tickets',
+      // if do not set roles, means: this page does not require permission
+    },
     children:[
       {
         path:'/userManage',
@@ -52,9 +71,16 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: '/reserve',
+    path: '/reserveManage',
     component: Layout,
+    name:'reserveManage',
     redirect: '/reserveManage',
+    meta: {
+      title: '预约管理', 
+      roles: ['admin'],
+      icon: 'el-icon-tickets', 
+      access: 'ReserveManage' 
+    },
     children: [
       {
         path: 'reserveManage',
@@ -62,6 +88,7 @@ export const asyncRoutes = [
         component: () => import('@/views/reserveManagement/index'),
         meta: {
           title: '预约管理', 
+          roles: ['admin'],
           icon: 'el-icon-tickets', 
           access: 'ReserveManage' 
         }
@@ -71,10 +98,12 @@ export const asyncRoutes = [
 ]
 
 const createRouter = () => new Router({
-  mode: 'history', // require service support
+  // mode: 'history', // require service support
   routes: constantRoutes
 })
+
 const router = createRouter()
+
 export function resetRouter() {
   const newRouter = createRouter()
   router.matcher = newRouter.matcher // reset router
