@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-10-26 16:40:19
- * @LastEditTime: 2021-11-15 20:51:41
+ * @LastEditTime: 2021-11-15 21:09:58
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\router\index.js
@@ -13,6 +13,17 @@ Vue.use(Router)
 
 import Layout from "@/layout/index"
 export const constantRoutes = [
+  {
+    path: '/redirect',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: '/redirect/:path(.*)',
+        component: () => import('@/views/redirect/index')
+      }
+    ]
+  },
   {
     path: '/login',
     name: 'login',
@@ -30,12 +41,20 @@ export const constantRoutes = [
       }
     ]
   },
+  
 ]
 export const asyncRoutes = [ 
   {
     path: '/userManage',
     component: Layout,
+    name:'UserManage',
     redirect: '/userManage',
+    meta: {
+      title: '用户管理',
+      roles: ['admin'],
+      icon: 'el-icon-tickets',
+      // if do not set roles, means: this page does not require permission
+    },
     children:[
       {
         path:'/userManage',
@@ -54,8 +73,10 @@ export const asyncRoutes = [
     component: Layout,
     name: 'Example',
     meta: {
-      title: 'Example',
-      icon: 'el-icon-s-help'
+      title: '预约管理', 
+      roles: ['admin'],
+      icon: 'el-icon-tickets', 
+      access: 'ReserveManage' 
     },
     children: [
       {
@@ -63,16 +84,8 @@ export const asyncRoutes = [
         name: 'ReserveManage',
         component: () => import('@/views/reserveManagement/index'),
         meta: {
-          title: '预约管理二级', 
-          icon: 'el-icon-tickets', 
-        }
-      },
-      {
-        path: '/reserveManage2',
-        name: 'reserveManage2',
-        component: () => import('@/views/reserveManagement/index'),
-        meta: {
-          title: '预约管理二级a', 
+          title: '预约管理', 
+          roles: ['admin'],
           icon: 'el-icon-tickets', 
         }
       }
@@ -81,10 +94,12 @@ export const asyncRoutes = [
 ]
 
 const createRouter = () => new Router({
-  mode: 'history', // require service support
+  // mode: 'history', // require service support
   routes: constantRoutes
 })
+
 const router = createRouter()
+
 export function resetRouter() {
   const newRouter = createRouter()
   router.matcher = newRouter.matcher // reset router
