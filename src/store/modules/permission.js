@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-11-03 20:30:03
- * @LastEditTime: 2021-11-10 17:46:02
+ * @LastEditTime: 2021-11-15 20:50:55
  * @LastEditors: shuhua
  * @Description: 路由权限
  * @FilePath: \my-admin\src\store\modules\permission.js
@@ -35,7 +35,7 @@ export function filterAsyncRoutes(routes, roles) {
         tmp.children = filterAsyncRoutes(tmp.children, roles)
       }
       res.push(tmp)
-    }
+    } 
   })
 
   return res
@@ -55,8 +55,6 @@ const mutations = {
 // 权限过滤
 const actions = {
   generateRoutes({ commit }, roles) {
-    console.log('333',roles);
-    
     return new Promise(resolve => {
       let accessedRoutes
       if (roles.includes('admin')) {

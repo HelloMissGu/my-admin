@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-10-26 17:37:12
- * @LastEditTime: 2021-11-10 17:44:56
+ * @LastEditTime: 2021-11-15 20:10:29
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\store\modules\user.js
@@ -19,10 +19,10 @@ const mutations={
     state.token = token
   },
   SET_USERNAME:(state,name)=>{
-    state.name = name
+    state.userName = name
   },
   SET_ROLENAME:(state,name)=>{
-    state.name = name
+    state.roleName = name
   }
 }
 const actions={

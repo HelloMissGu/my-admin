@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-10-26 16:40:19
- * @LastEditTime: 2021-11-10 21:01:58
+ * @LastEditTime: 2021-11-15 20:51:41
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\router\index.js
@@ -32,7 +32,6 @@ export const constantRoutes = [
   },
 ]
 export const asyncRoutes = [ 
-
   {
     path: '/userManage',
     component: Layout,
@@ -46,27 +45,38 @@ export const asyncRoutes = [
           title: '用户管理',
           roles: ['admin'],
           icon: 'el-icon-tickets',
-          // if do not set roles, means: this page does not require permission
         }
       }
     ]
   },
   {
-    path: '/reserve',
+    path: '/example',
     component: Layout,
-    redirect: '/reserveManage',
+    name: 'Example',
+    meta: {
+      title: 'Example',
+      icon: 'el-icon-s-help'
+    },
     children: [
       {
-        path: 'reserveManage',
+        path: '/reserveManage',
         name: 'ReserveManage',
         component: () => import('@/views/reserveManagement/index'),
         meta: {
-          title: '预约管理', 
+          title: '预约管理二级', 
           icon: 'el-icon-tickets', 
-          access: 'ReserveManage' 
+        }
+      },
+      {
+        path: '/reserveManage2',
+        name: 'reserveManage2',
+        component: () => import('@/views/reserveManagement/index'),
+        meta: {
+          title: '预约管理二级a', 
+          icon: 'el-icon-tickets', 
         }
       }
-    ]
+    ],
   },
 ]
 

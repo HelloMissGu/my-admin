@@ -1,7 +1,7 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-03 15:57:28
- * @LastEditTime: 2021-11-10 18:28:57
+ * @LastEditTime: 2021-11-15 20:11:49
  * @LastEditors: shuhua
  * @Description: 左侧路由栏
  * @FilePath: \my-admin\src\layout\components\Sidebar\sidebarItem.vue
@@ -59,7 +59,6 @@ export default {
     return{}
   },
   mounted(){
-    console.log('9999',isExternal);
     
   },
   methods: {
