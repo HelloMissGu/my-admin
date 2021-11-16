@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-11-03 20:30:03
- * @LastEditTime: 2021-11-15 20:50:55
+ * @LastEditTime: 2021-11-16 17:41:17
  * @LastEditors: shuhua
  * @Description: 路由权限
  * @FilePath: \my-admin\src\store\modules\permission.js
@@ -14,6 +14,8 @@ import { constantRoutes,asyncRoutes } from "@/router"
  */
 function hasPermission(roles, route) {
   if (route.meta && route.meta.roles) {
+    console.log('roles',route.meta.roles,roles);
+    
     return roles.some(role => route.meta.roles.includes(role))
   } else {
     return true
@@ -37,7 +39,7 @@ export function filterAsyncRoutes(routes, roles) {
       res.push(tmp)
     } 
   })
-
+  
   return res
 }
 
@@ -60,7 +62,10 @@ const actions = {
       if (roles.includes('admin')) {
         accessedRoutes = asyncRoutes || []
       } else {
+        console.log('yyyy',roles);
+        
         accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+        console.log('zzzzz',accessedRoutes);
       }
       commit('SET_ROUTES', accessedRoutes)
       resolve(accessedRoutes)

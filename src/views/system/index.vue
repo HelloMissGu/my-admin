@@ -1,14 +1,14 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-03 21:08:01
- * @LastEditTime: 2021-11-03 21:08:01
+ * @LastEditTime: 2021-11-16 14:08:42
  * @LastEditors: shuhua
  * @Description: 预约管理
- * @FilePath: \my-admin\src\views\reserveManagement\index.vue
+ * @FilePath: \my-admin\src\views\system\index.vue
 -->
 <template>
 <div>
-  预约管理
+  系统管理
 </div>
 </template>
 <script>

@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-11-03 20:15:32
- * @LastEditTime: 2021-11-15 20:36:39
+ * @LastEditTime: 2021-11-16 17:21:16
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\permission.js
@@ -14,13 +14,15 @@ console.log('router',router);
 router.beforeEach(async (to,from,next)=>{
   
   const hasToken = getToken()
-  console.log('a11',hasToken);
+  
   if(hasToken){
     if(to.path==='/login'){
       next({path:'/'})
     }else{
       const hasUserInfo = store.getters.roleName
       if (hasUserInfo) {
+        console.log('111');
+        
         next()
       }else{
         try {
@@ -31,8 +33,8 @@ router.beforeEach(async (to,from,next)=>{
           const accessRoutes = await store.dispatch('permission/generateRoutes', roles)
           
           // 动态添加可访问的路由
-          router.addRoutes(accessRoutes.path)
-          console.log('route',accessRoutes,accessRoutes.path);
+          router.addRoutes(accessRoutes)
+          console.log('222',accessRoutes,accessRoutes.path);
           
           // hack method to ensure that addRoutes is complete
           // set the replace: true, so the navigation will not leave a history record

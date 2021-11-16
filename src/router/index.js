@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-10-26 16:40:19
- * @LastEditTime: 2021-11-15 21:09:58
+ * @LastEditTime: 2021-11-16 17:43:13
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\router\index.js
@@ -48,7 +48,7 @@ export const asyncRoutes = [
     path: '/userManage',
     component: Layout,
     name:'UserManage',
-    redirect: '/userManage',
+    redirect: '/userManage/helpConfig',
     meta: {
       title: '用户管理',
       roles: ['admin'],
@@ -57,11 +57,21 @@ export const asyncRoutes = [
     },
     children:[
       {
-        path:'/userManage',
-        component: () => import('@/views/userManage/index'),
-        name: 'UserManage',
+        path:'/helpConfig',
+        component: () => import('@/views/userManage/helpConfig/index'),
+        name: 'helpConfig',
         meta: {
-          title: '用户管理',
+          title: '帮助配置',
+          roles: ['admin'],
+          icon: 'el-icon-tickets',
+        }
+      },
+      {
+        path:'/homeConfig',
+        component: () => import('@/views/userManage/homeConfig/index'),
+        name: 'homeConfig',
+        meta: {
+          title: '首页配置',
           roles: ['admin'],
           icon: 'el-icon-tickets',
         }
@@ -69,23 +79,32 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: '/example',
+    path: '/system',
     component: Layout,
-    name: 'Example',
+    name: 'system',
     meta: {
-      title: '预约管理', 
-      roles: ['admin'],
+      title: '系统管理', 
+      roles: ['admin','customer'],
       icon: 'el-icon-tickets', 
-      access: 'ReserveManage' 
     },
     children: [
       {
-        path: '/reserveManage',
-        name: 'ReserveManage',
-        component: () => import('@/views/reserveManagement/index'),
+        path: '/role',
+        name: 'role',
+        component: () => import('@/views/system/role/index'),
         meta: {
-          title: '预约管理', 
+          title: '角色', 
           roles: ['admin'],
+          icon: 'el-icon-tickets', 
+        }
+      },
+      {
+        path: '/user',
+        name: 'user',
+        component: () => import('@/views/system/user/index'),
+        meta: {
+          title: '用户', 
+          roles: ['customer'],
           icon: 'el-icon-tickets', 
         }
       }
