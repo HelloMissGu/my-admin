@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-11-03 20:30:03
- * @LastEditTime: 2021-11-16 17:41:17
+ * @LastEditTime: 2021-11-17 14:41:29
  * @LastEditors: shuhua
  * @Description: 路由权限
  * @FilePath: \my-admin\src\store\modules\permission.js
@@ -9,8 +9,8 @@
 import { constantRoutes,asyncRoutes } from "@/router"
 
 /** 使用meta.role确定当前用户是否具有权限
- * @param roles
- * @param route
+ * @param roles 接口返回的所有权限
+ * @param route route.meta.roles 当前路由的权限
  */
 function hasPermission(roles, route) {
   if (route.meta && route.meta.roles) {

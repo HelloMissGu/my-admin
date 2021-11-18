@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-10-26 17:37:12
- * @LastEditTime: 2021-11-16 17:30:30
+ * @LastEditTime: 2021-11-18 16:11:23
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\store\modules\user.js
@@ -50,7 +50,7 @@ const actions={
       // let roleName = null
       let data={
         userName:'shuhua',
-        roleName:['customer']
+        roleName:['admin']
       }
       commit('SET_USERNAME',data.userName)
       commit('SET_ROLENAME',data.roleName)

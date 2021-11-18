@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-10-26 16:40:19
- * @LastEditTime: 2021-11-16 17:43:13
+ * @LastEditTime: 2021-11-18 21:09:48
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\router\index.js
@@ -48,7 +48,8 @@ export const asyncRoutes = [
     path: '/userManage',
     component: Layout,
     name:'UserManage',
-    redirect: '/userManage/helpConfig',
+    // component: () => import('@/views/userManage/helpConfig/index'),
+    // redirect: '/userManage/helpConfig',
     meta: {
       title: '用户管理',
       roles: ['admin'],
@@ -57,7 +58,7 @@ export const asyncRoutes = [
     },
     children:[
       {
-        path:'/helpConfig',
+        path:'helpConfig',
         component: () => import('@/views/userManage/helpConfig/index'),
         name: 'helpConfig',
         meta: {
@@ -67,7 +68,7 @@ export const asyncRoutes = [
         }
       },
       {
-        path:'/homeConfig',
+        path:'homeConfig',
         component: () => import('@/views/userManage/homeConfig/index'),
         name: 'homeConfig',
         meta: {
@@ -82,6 +83,7 @@ export const asyncRoutes = [
     path: '/system',
     component: Layout,
     name: 'system',
+    redirect:'/system/role',
     meta: {
       title: '系统管理', 
       roles: ['admin','customer'],
@@ -89,7 +91,7 @@ export const asyncRoutes = [
     },
     children: [
       {
-        path: '/role',
+        path: 'role',
         name: 'role',
         component: () => import('@/views/system/role/index'),
         meta: {
@@ -99,7 +101,7 @@ export const asyncRoutes = [
         }
       },
       {
-        path: '/user',
+        path: 'user',
         name: 'user',
         component: () => import('@/views/system/user/index'),
         meta: {
