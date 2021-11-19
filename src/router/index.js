@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-10-26 16:40:19
- * @LastEditTime: 2021-11-18 21:09:48
+ * @LastEditTime: 2021-11-19 14:29:50
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\router\index.js
@@ -49,7 +49,7 @@ export const asyncRoutes = [
     component: Layout,
     name:'UserManage',
     // component: () => import('@/views/userManage/helpConfig/index'),
-    // redirect: '/userManage/helpConfig',
+    redirect: '/userManage/helpConfig',
     meta: {
       title: '用户管理',
       roles: ['admin'],
