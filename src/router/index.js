@@ -33,6 +33,7 @@ export const constantRoutes = [
     path: '/',
     component: Layout,
     redirect: '/home',
+    roles: ['admin'],
     children:[
       {
         path:'home',

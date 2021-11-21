@@ -13,6 +13,7 @@ const state={
   token: getToken(),
   userName: '',
   roleName: '',
+  roles: []
 }
 const mutations={
   SET_TOKEN: (state, token) => {
@@ -23,6 +24,9 @@ const mutations={
   },
   SET_ROLENAME:(state,name)=>{
     state.roleName = name
+  },
+  SET_ROLES: (state, roles) => {
+    state.roles = roles
   }
 }
 const actions={
@@ -36,9 +40,15 @@ const actions={
       // }).catch(error => {
       //   reject(error)
       // })
+      let data={
+        userName:'shuhua',
+        token:'111'
+      }
+      commit('SET_TOKEN', data.token),
+      setToken(data.token)
       setTimeout(() => {
         resolve({
-          aa:'aa'
+          data
         })
       }, 500);
     })
@@ -46,36 +56,39 @@ const actions={
   async getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
       
-      // let userName=null
-      // let roleName = null
       let data={
         userName:'shuhua',
-        roleName:['admin']
+        roleName:['admin'],
+        roles:['admin']
       }
       commit('SET_USERNAME',data.userName)
       commit('SET_ROLENAME',data.roleName)
+      commit('SET_ROLES', data.roles)
       setTimeout(() => {
         resolve({
           data
         })
       }, 500);
-      // getInfo(state.token).then(response => {
-      //   const { data } = response
-      //   // const roles = data.code
-
-      //   if (!data) {
-      //     reject('Verification failed, please Login again.')
-      //   }
-      //   data.avatar = data.avatar || 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
-      //   const { username, avatar, butTreeList, roleName } = data
-      //   commit('SET_NAME', username)
-      //   commit('SET_AVATAR', avatar)
-      //   commit('SET_ROLENAME', roleName)
-      //   commit('SET_BTNPERMISSIONS', butTreeList)
-      //   resolve(data)
-      // }).catch(error => {
-      //   reject(error)
-      // })
+    })
+  },
+  logout({ commit, state, dispatch }) {
+    return new Promise((resolve, reject) => {
+        commit('SET_TOKEN', '')
+        commit('SET_ROLENAME', [])
+        commit('SET_ROLES',[])
+        removeToken()
+        resetRouter()
+        setTimeout(() => {
+          resolve()
+        }, 500)
+    })
+  },
+  resetToken({ commit }) {
+    return new Promise(resolve => {
+      commit('SET_TOKEN', '')
+      commit('SET_ROLES', [])
+      removeToken()
+      resolve()
     })
   },
 }

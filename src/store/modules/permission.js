@@ -62,10 +62,7 @@ const actions = {
       if (roles.includes('admin')) {
         accessedRoutes = asyncRoutes || []
       } else {
-        console.log('yyyy',roles);
-        
         accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
-        console.log('zzzzz',accessedRoutes);
       }
       commit('SET_ROUTES', accessedRoutes)
       resolve(accessedRoutes)

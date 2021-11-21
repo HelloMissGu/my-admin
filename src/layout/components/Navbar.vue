@@ -10,6 +10,11 @@
 <div class="navbar">
   <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
   <breadcrumb id="breadcrumb-container"/>
+  <div class="right-meanu">
+    <el-dropdown-item divided @click.native="logout">
+      <span style="display:block;">Log Out</span>
+    </el-dropdown-item>
+  </div>
 </div>
 </template>
 <script>
@@ -28,6 +33,10 @@ export default {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
+    async logout() {
+      await this.$store.dispatch('user/logout')
+      this.$router.push(`/login`)
+    }
   }
 }
 </script>

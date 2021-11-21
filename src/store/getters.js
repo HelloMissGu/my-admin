@@ -11,5 +11,6 @@ const getters = {
   roleName:state=>state.user.roleName,
   permission_routes: state => state.permission.routes,
   sidebar: state => state.app.sidebar,
+  token: state => state.user.token,
 }
 export default getters

@@ -124,10 +124,12 @@ export default {
       if(!valid) return
       
       // // api login
-      // let res = await this.$store.dispatch('user/login')
-      // console.log('123',res);
+      let res = await this.$store.dispatch('user/login')
+      console.log('123',res);
       setTimeout(() => {
-        this.$router.push({name:'Home'})
+        console.log('222');
+        
+        this.$router.push('/home')
       }, 1000);
       
       // this.$refs.loginForm.validate(valid => {
