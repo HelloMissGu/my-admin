@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-10-26 17:37:12
- * @LastEditTime: 2021-11-18 16:11:23
+ * @LastEditTime: 2021-11-22 19:47:21
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\store\modules\user.js
@@ -47,9 +47,7 @@ const actions={
       commit('SET_TOKEN', data.token),
       setToken(data.token)
       setTimeout(() => {
-        resolve({
-          data
-        })
+        resolve(data)
       }, 500);
     })
   },
@@ -65,9 +63,7 @@ const actions={
       commit('SET_ROLENAME',data.roleName)
       commit('SET_ROLES', data.roles)
       setTimeout(() => {
-        resolve({
-          data
-        })
+        resolve(data)
       }, 500);
     })
   },

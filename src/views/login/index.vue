@@ -1,7 +1,7 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-10-26 16:43:06
- * @LastEditTime: 2021-11-03 15:13:47
+ * @LastEditTime: 2021-11-22 19:54:34
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\views\login\index.vue
@@ -107,6 +107,18 @@ export default {
         otherQuery: {}
     }
   },
+  watch:{
+    $route: {
+      handler: function(route) {
+        const query = route.query
+        if (query) {
+          this.redirect = query.redirect
+          this.otherQuery = this.getOtherQuery(query)
+        }
+      },
+      immediate: true
+    }
+  },
   methods:{
     showPwd() {
       if (this.passwordType === 'password') {
@@ -130,6 +142,7 @@ export default {
         console.log('222');
         
         this.$router.push('/home')
+        // this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
       }, 1000);
       
       // this.$refs.loginForm.validate(valid => {
@@ -151,6 +164,14 @@ export default {
       //   }
       // })
     },
+    getOtherQuery(query) {
+      return Object.keys(query).reduce((acc, cur) => {
+        if (cur !== 'redirect') {
+          acc[cur] = query[cur]
+        }
+        return acc
+      }, {})
+    }
   }
 }
 </script>

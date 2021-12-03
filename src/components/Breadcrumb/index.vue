@@ -1,7 +1,7 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-17 14:24:09
- * @LastEditTime: 2021-11-19 14:29:43
+ * @LastEditTime: 2021-11-22 21:02:03
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\components\Breadcrumb\index.vue
@@ -9,13 +9,10 @@
 <template>
 <div>
   <el-breadcrumb separator="/">
-  <!-- <transition-group name="breadcrumb"> -->
     <el-breadcrumb-item v-for="(item,index) in levelList" :key="index">
       <span v-if="item.redirect==='noRedirect'||index==levelList.length-1" class="no-redirect">{{ item.meta.title }}</span>
       <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
-      <!-- <div @click="handleLink(item)">{{ item.meta.title }}</div> -->
     </el-breadcrumb-item>
-  <!-- </transition-group> -->
   </el-breadcrumb>
 </div>
 </template>

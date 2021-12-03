@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-10-26 16:40:19
- * @LastEditTime: 2021-11-19 14:29:50
+ * @LastEditTime: 2021-11-22 19:40:57
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\router\index.js
@@ -20,7 +20,7 @@ export const constantRoutes = [
     children: [
       {
         path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect/index')
+        component: () => import('@/views/home/index')
       }
     ]
   },

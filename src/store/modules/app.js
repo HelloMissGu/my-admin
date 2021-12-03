@@ -1,7 +1,7 @@
 /*
  * @Author: shuhua
  * @Date: 2021-11-19 16:43:56
- * @LastEditTime: 2021-11-19 17:12:47
+ * @LastEditTime: 2021-11-22 20:15:26
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\store\modules\app.js
@@ -12,6 +12,8 @@ const state = {
     opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
     withoutAnimation: false
   },
+  device: 'desktop',
+  size: Cookies.get('size') || 'medium'
 }
 const mutations={
   TOGGLE_SIDEBAR: state => {
@@ -34,7 +36,7 @@ const mutations={
   SET_SIZE: (state, size) => {
     state.size = size
     Cookies.set('size', size)
-  }
+  },
 }
 const actions={
   toggleSideBar({ commit }) {

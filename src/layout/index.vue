@@ -1,7 +1,7 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-02 21:03:43
- * @LastEditTime: 2021-11-19 17:27:07
+ * @LastEditTime: 2021-11-22 20:12:06
  * @LastEditors: shuhua
  * @Description: 布局
  * @FilePath: \my-admin\src\layout\index.vue
@@ -24,8 +24,10 @@
 <script>
 // 需要在components新建一个js导出如下文件，才可以引入
 import { Navbar, Sidebar, AppMain } from './components'
+import ResizeMixin from './mixin/ResizeHandler'
 export default {
   name:'Layout',
+  mixins: [ResizeMixin],
   components:{
     Sidebar,
     Navbar,
