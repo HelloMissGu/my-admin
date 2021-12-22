@@ -1,7 +1,7 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-03 15:57:28
- * @LastEditTime: 2021-11-15 20:11:49
+ * @LastEditTime: 2021-12-22 20:07:22
  * @LastEditors: shuhua
  * @Description: 左侧路由栏
  * @FilePath: \my-admin\src\layout\components\Sidebar\sidebarItem.vue
@@ -96,6 +96,6 @@ export default {
   }
 }
 </script>
-<style lang='scss'>
+<style >
 
 </style>

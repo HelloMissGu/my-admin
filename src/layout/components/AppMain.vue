@@ -1,7 +1,7 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-02 21:04:27
- * @LastEditTime: 2021-11-05 17:00:03
+ * @LastEditTime: 2021-12-22 20:07:37
  * @LastEditors: shuhua
  * @Description: 路由过渡
  * @FilePath: \my-admin\src\layout\components\AppMain.vue
@@ -25,7 +25,7 @@ name: 'AppMain',
   }
 }
 </script>
-<style lang='scss'>
+<style >
 .content-container{
   height: 100%;
   background-color: #ccc;

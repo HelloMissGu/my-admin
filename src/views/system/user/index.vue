@@ -1,7 +1,7 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-16 14:24:29
- * @LastEditTime: 2021-11-16 14:28:15
+ * @LastEditTime: 2021-12-22 20:07:28
  * @LastEditors: shuhua
  * @Description: 
  * @FilePath: \my-admin\src\views\system\user\index.vue
@@ -14,6 +14,6 @@ export default {
 
 }
 </script>
-<style lang='scss'>
+<style >
 
 </style>

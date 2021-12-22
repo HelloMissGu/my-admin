@@ -1,10 +1,10 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-02 20:40:09
- * @LastEditTime: 2021-11-02 20:41:50
+ * @LastEditTime: 2021-12-22 20:06:42
  * @LastEditors: shuhua
  * @Description: 
- * @FilePath: \my-admin\src\views\dashboard\index.vue
+ * @FilePath: \my-admin\src\views\home\index.vue
 -->
 <template>
 <div>首页</div>
@@ -14,6 +14,6 @@ export default {
 
 }
 </script>
-<style lang='scss'>
+<style >
 
 </style>

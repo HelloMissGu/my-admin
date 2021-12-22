@@ -1,7 +1,7 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-03 21:08:01
- * @LastEditTime: 2021-11-16 14:08:42
+ * @LastEditTime: 2021-12-22 20:07:14
  * @LastEditors: shuhua
  * @Description: 预约管理
  * @FilePath: \my-admin\src\views\system\index.vue
@@ -17,6 +17,6 @@ export default {
 
 }
 </script>
-<style lang='scss'>
+<style >
 
 </style>

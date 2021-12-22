@@ -1,7 +1,7 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-02 21:02:17
- * @LastEditTime: 2021-11-19 15:44:39
+ * @LastEditTime: 2021-12-22 20:07:32
  * @LastEditors: shuhua
  * @Description: 头部导航栏
  * @FilePath: \my-admin\src\layout\components\Navbar.vue
@@ -40,6 +40,6 @@ export default {
   }
 }
 </script>
-<style lang='scss'>
+<style >
 
 </style>

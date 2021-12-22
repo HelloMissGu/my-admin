@@ -1,7 +1,7 @@
 <!--
  * @Author: shuhua
  * @Date: 2021-11-02 21:03:43
- * @LastEditTime: 2021-11-22 20:12:06
+ * @LastEditTime: 2021-12-22 20:05:58
  * @LastEditors: shuhua
  * @Description: 布局
  * @FilePath: \my-admin\src\layout\index.vue
@@ -35,13 +35,13 @@ export default {
   },
 }
 </script>
-<style lang='scss'>
-@import '@/styles/variables.scss';
+<style >
 .app-index{
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex: 1;
+}
   .sidebar-container{
     flex: 0.1;
     height:calc(100vh - 18px);
@@ -49,12 +49,11 @@ export default {
   }
   .main-container{
     flex: 0.9;
+  }
     .fixed-header{
       height: 80px;
     }
     .content-container{
       height: calc(100vh - 100px);
     }
-  }
-}
 </style>
